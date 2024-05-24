@@ -116,4 +116,28 @@
 
         function update() {
             if (gameOver) {
-                alert('Game Over! Redirec
+                alert('Game Over! Redirecting...');
+                window.location.href = "/next-page-url"; // Replace with the actual URL
+                return;
+            }
+            updatePlayer();
+            updateBullets();
+            updateInvaders();
+            draw();
+            requestAnimationFrame(update);
+        }
+
+        function initInvaders() {
+            for (let i = 0; i < 5; i++) {
+                for (let j = 0; j < 3; j++) {
+                    invaders.push({ x: i * 60 + 100, y: j * 40 + 30, width: 40, height: 20 });
+                }
+            }
+        }
+
+        initInvaders();
+        update();
+    </script>
+</body>
+</html>
+
